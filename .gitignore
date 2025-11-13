@@ -50,3 +50,15 @@ tags
 ./pretrain
 .idea/
 .aider*
+
+# ===============================================
+# Rules for MFT_Project to ignore Qlib data
+# ===============================================
+
+# Ignore Qlib's generated data directories
+MFT_Project/data/calendars/
+MFT_Project/data/features/
+MFT_Project/data/instruments/
+
+# Also ignore archives in the data directory
+MFT_Project/data/*.tar.gz
