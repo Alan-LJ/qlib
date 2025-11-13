@@ -1,21 +1,64 @@
-# Python
+# https://github.com/github/gitignore/blob/master/Python.gitignore
 __pycache__/
+
 *.pyc
-*.pyo
 *.pyd
+*.so
+*.ipynb
+.ipynb_checkpoints
+_build
+build/
+dist/
 
-# Virtual Environment
-# NEVER commit virtual environment folders
-.qlib/
-.venv/
+*.pkl
+*.hd5
+*.csv
 
-# MFT_Project specific data files
-MFT_Project/data/*
-# But DO track the python scripts in the data folder
-!MFT_Project/data/*.py
-!MFT_Project/data/__init__.py
+.env
+.vim
+.nvimrc
+.vscode
 
-# Ignore editor and OS files
+qlib/VERSION.txt
+qlib/data/_libs/expanding.cpp
+qlib/data/_libs/rolling.cpp
+examples/estimator/estimator_example/
+examples/rl/data/
+examples/rl/checkpoints/
+examples/rl/outputs/
+examples/rl_order_execution/data/
+examples/rl_order_execution/outputs/
+
+*.egg-info/
+
+# test related
+test-output.xml
+.output
+.data
+
+# special software
+mlruns/
+
+tags
+
+.pytest_cache/
+.mypy_cache/
 .vscode/
+
+*.swp
+
+./pretrain
 .idea/
-*.DS_Store
+.aider*
+
+# ===============================================
+# Rules for MFT_Project to ignore Qlib data
+# ===============================================
+
+# Ignore Qlib's generated data directories
+MFT_Project/data/calendars/
+MFT_Project/data/features/
+MFT_Project/data/instruments/
+
+# Also ignore archives in the data directory
+MFT_Project/data/*.tar.gz
