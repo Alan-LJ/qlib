@@ -63,7 +63,7 @@ def render_template(config_path: str) -> str:
     str
         the rendered content
     """
-    with open(config_path, "r") as f:
+    with open(config_path, "r", encoding="utf-8") as f:
         config = f.read()
     # Set up the Jinja2 environment
     template = Template(config)

@@ -16,8 +16,9 @@ from qlib.utils import exists_qlib_data
 
 
 class GetData:
-    REMOTE_URL = "https://github.com/SunsetWolf/qlib_dataset/releases/download"
-
+    REMOTE_URL = "https://github.com/SunsetWolf/qlib_dataset/releases/download" 
+    # 上述链接已经失效了
+    
     def __init__(self, delete_zip_file=False):
         """
 
