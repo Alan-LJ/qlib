@@ -1,0 +1,20 @@
+task:
+  dataset:
+    class: MultiModalDataset
+    module_path: MFT_Project.data.dataset
+    kwargs:
+      text_feature_path: "MFT_Project/data/dummy_text_features.pkl"  # 请根据实际路径修改
+      # 其他MultiModalDataset需要的参数可在此补充
+  model:
+    class: FusionTransformer
+    module_path: MFT_Project.model.fusion_model
+    kwargs:
+      input_dim: 128           # 输入特征维度，根据实际情况修改
+      text_dim: 256            # 文本特征维度，根据实际情况修改
+      num_layers: 4            # Transformer层数
+      num_heads: 8             # 多头注意力头数
+      hidden_dim: 512          # 隐藏层维度
+      dropout: 0.1             # Dropout比例
+      lr: 0.001                # 学习率
+      # 其他FusionTransformer需要的参数可在此补充
+# 你可以根据实际需求继续补充dataset和model的kwargs参数 好的

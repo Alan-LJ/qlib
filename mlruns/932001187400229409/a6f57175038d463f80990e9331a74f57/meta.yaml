@@ -1,0 +1,14 @@
+artifact_uri: file:P:\PyCharm\ai4finance\qlib\mlruns/932001187400229409/a6f57175038d463f80990e9331a74f57/artifacts
+end_time: 1762868553681
+entry_point_name: ''
+experiment_id: '932001187400229409'
+lifecycle_stage: active
+run_id: a6f57175038d463f80990e9331a74f57
+run_name: mlflow_recorder
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1762868550754
+status: 4
+tags: []
+user_id: HP

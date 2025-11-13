@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+# NEVER commit virtual environment folders
+.qlib/
+.venv/
+
+# MFT_Project specific data files
+MFT_Project/data/*
+# But DO track the python scripts in the data folder
+!MFT_Project/data/*.py
+!MFT_Project/data/__init__.py
+
+# Ignore editor and OS files
+.vscode/
+.idea/
+*.DS_Store

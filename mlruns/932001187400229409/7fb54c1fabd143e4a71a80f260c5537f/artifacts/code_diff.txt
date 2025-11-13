@@ -1,0 +1,29 @@
+diff --git a/qlib/cli/run.py b/qlib/cli/run.py
+index eb6ed971..d8370e4a 100644
+--- a/qlib/cli/run.py
++++ b/qlib/cli/run.py
+@@ -63,7 +63,7 @@ def render_template(config_path: str) -> str:
+     str
+         the rendered content
+     """
+-    with open(config_path, "r") as f:
++    with open(config_path, "r", encoding="utf-8") as f:
+         config = f.read()
+     # Set up the Jinja2 environment
+     template = Template(config)
+diff --git a/qlib/tests/data.py b/qlib/tests/data.py
+index 2fa76855..c4782a8c 100644
+--- a/qlib/tests/data.py
++++ b/qlib/tests/data.py
+@@ -16,8 +16,9 @@ from qlib.utils import exists_qlib_data
+ 
+ 
+ class GetData:
+-    REMOTE_URL = "https://github.com/SunsetWolf/qlib_dataset/releases/download"
+-
++    REMOTE_URL = "https://github.com/SunsetWolf/qlib_dataset/releases/download" 
++    # 上述链接已经失效了
++    
+     def __init__(self, delete_zip_file=False):
+         """
+ 

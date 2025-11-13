@@ -1,0 +1,2 @@
+[console_scripts]
+qrun = qlib.cli.run:run

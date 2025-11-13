@@ -1,0 +1,1 @@
+MFT_Project/data/static_market_data.pkl
