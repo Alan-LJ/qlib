@@ -1,3 +1,8 @@
+# Qlib workflow template for the Multi-Modal Finance Toolkit project.
+# It wires synthetic static data, the multi-modal dataset wrapper, and the
+# PyTorch fusion model. Adjust the segments and hyper-parameters to suit larger
+# experiments.
+
 qlib_init:
   provider_uri: MFT_Project/data
   region: cn
@@ -5,40 +10,42 @@ qlib_init:
 task:
   dataset:
     class: MultiModalDataset
-    module_path: MFT_Project.data.dataset
+    module_path: MFT_Project.dataset.multimodal
     kwargs:
       handler:
-        class: "qlib.data.dataset.handler.DataHandlerLP"
+        class: qlib.data.dataset.handler.DataHandlerLP
         module_path: qlib.data.dataset.handler
         kwargs:
           instruments: null
           start_time: "2023-01-02"
-          end_time: "2023-01-06"
+          end_time: "2023-06-30"
           data_loader:
             class: StaticDataLoader
             module_path: qlib.data.dataset.loader
             kwargs:
-              config:
-                feature: "MFT_Project/data/static_market_data.pkl"
+              config: MFT_Project/data/static_market_data.pkl
       segments:
-        train: ["2023-01-02", "2023-01-04"]
-        valid: ["2023-01-05", "2023-01-05"]
-        test: ["2023-01-06", "2023-01-06"]
-      text_feature_path: "MFT_Project/data/dummy_text_features.pkl"
-      # 其他 MultiModalDataset 需要的参数可在此补充
+        train: ["2023-01-02", "2023-03-31"]
+        valid: ["2023-04-01", "2023-05-15"]
+        test: ["2023-05-16", "2023-06-30"]
+      text_feature_path: MFT_Project/data/dummy_text_features.pkl
+      lazy_text_loading: true
 
   model:
-    class: FusionTransformer
-    module_path: MFT_Project.model.fusion_model
+    class: FusionModel
+    module_path: MFT_Project.model.fusion
     kwargs:
-      market_dim: 7           # 输入特征维度，根据实际情况修改
-      text_dim: 256             # 文本特征维度，根据实际情况修改
-      num_layers: 4             # Transformer 层数
-      num_heads: 8              # 多头注意力头数
-      hidden_dim: 512           # 隐藏层维度
-      dropout: 0.1              # Dropout 比例
-      lr: 0.001                 # 学习率
-      # 其他 FusionTransformer 需要的参数可在此补充
-
-# 你可以根据实际需求继续补充 dataset 和 model 的 kwargs 参数
+      market_dim: 7
+      text_dim: 256
+      market_hidden_dims: [256, 128]
+      text_hidden_dims: [256]
+      fusion_hidden_dims: [128]
+      activation: relu
+      dropout: 0.1
+      lr: 0.001
+      weight_decay: 0.0
+      n_epochs: 50
+      batch_size: 4096
+      patience: 5
+      loss: mse
 
